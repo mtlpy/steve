@@ -137,7 +137,7 @@ def fetch_cmd(cfg, parser, parsed, args):
     video_feed = vidscraper.auto_feed(url)
     video_feed.load()
 
-    print 'Found {0} videos...'.format(video_feed.video_count)
+    print u'Found {0} videos...'.format(video_feed.video_count)
     for i, video in enumerate(video_feed):
         if video.title:
             filename = video.title.replace(' ', '_')
@@ -146,9 +146,9 @@ def fetch_cmd(cfg, parser, parsed, args):
         else:
             filename = ''
 
-        filename = '{0:04d}{1}.json'.format(i, filename[:40])
+        filename = u'{0:04d}{1}.json'.format(i, filename[:40])
 
-        print 'Working on {0}... ({1})'.format(video.title, filename)
+        print u'Working on {0}... ({1})'.format(video.title, filename)
         item = vidscraper_to_dict(video, youtube_embed=youtube_embed)
 
         f = open(os.path.join('json', filename), 'w')
